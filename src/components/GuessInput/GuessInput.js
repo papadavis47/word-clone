@@ -1,15 +1,17 @@
 import React from 'react';
 
-function GuessInput({ list, setList, guess, setGuess }) {
+function GuessInput({ handleSubmitGuess }) {
+  const [tentativeGuess, setTentativeGuess] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
-    if (guess.length !== 5) {
+    if (tentativeGuess.length !== 5) {
       window.alert('Wrong number of letters. Try again 😃');
       return;
     }
-    setList([...list, { id: Math.random(), value: guess }]);
-    console.info({ guess });
-    setGuess('');
+    // setList([...list, { id: Math.random(), value: guess }]);
+    handleSubmitGuess(tentativeGuess);
+    console.info({ tentativeGuess });
+    setTentativeGuess('');
   }
 
   return (
@@ -21,8 +23,8 @@ function GuessInput({ list, setList, guess, setGuess }) {
         maxLength={5}
         id='guess-input'
         type='text'
-        value={guess}
-        onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        value={tentativeGuess}
+        onChange={(event) => setTentativeGuess(event.target.value.toUpperCase())}
       />
     </form>
   );
