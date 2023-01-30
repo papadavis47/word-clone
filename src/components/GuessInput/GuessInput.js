@@ -7,7 +7,7 @@ function GuessInput({ list, setList, guess, setGuess }) {
       window.alert('Wrong number of letters. Try again 😃');
       return;
     }
-    setList([...list, guess]);
+    setList([...list, { id: Math.random(), value: guess }]);
     console.info({ guess });
     setGuess('');
   }
