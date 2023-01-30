@@ -4,8 +4,8 @@ function GuessInput({ guess, setGuess }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (guess.length !== 5) {
-      window.alert('Wrong number of letters. Try again!');
-      setGuess('');
+      window.alert('Wrong number of letters. Try again 😃');
+      return;
     }
     console.info({ guess });
     setGuess('');
@@ -14,6 +14,9 @@ function GuessInput({ guess, setGuess }) {
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
+        required
+        minLength={5}
+        maxLength={5}
         id='guess-input'
         type='text'
         value={guess}
