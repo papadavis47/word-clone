@@ -1,15 +1,17 @@
 import React from 'react';
 
-function GuessInput({ guess, setGuess }) {
+function GuessInput({ list, setList, guess, setGuess }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (guess.length !== 5) {
       window.alert('Wrong number of letters. Try again 😃');
       return;
     }
+    setList([...list, guess]);
     console.info({ guess });
     setGuess('');
   }
+
   return (
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
       <label htmlFor='guess-input'>Enter guess:</label>
