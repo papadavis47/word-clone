@@ -1,12 +1,14 @@
 import { range } from '../../utils';
+import { checkGuess } from '../../game-helpers';
 
-function Guess({ guess }) {
+function Guess({ guess, answer }) {
+  let checkResults = checkGuess(guess, answer);
   return (
     <p className='guess'>
       {guess
         ? guess.split('').map((char, index) => (
-            <span className='cell' key={index}>
-              {char}
+            <span className={`cell ${checkResults[index].status}`} key={index}>
+              {checkResults[index].letter}
             </span>
           ))
         : range(5).map((num) => (
