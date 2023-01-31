@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EndBanner({ guesses, win, lose, answer }) {
+function EndBanner({ numOfGuesses, win, lose, answer }) {
   const result = win ? 'happy' : 'sad';
   return (
     <div className={`${result} banner`}>
@@ -10,7 +10,8 @@ function EndBanner({ guesses, win, lose, answer }) {
         </p>
       ) : (
         <p>
-          <strong>Congratulations!</strong> Got it in <strong>{guesses.length} guesses</strong>.
+          <strong>Congratulations!</strong> Got it in{' '}
+          <strong>{numOfGuesses === 1 ? '1 guess' : numOfGuesses} guesses</strong>.
         </p>
       )}
     </div>

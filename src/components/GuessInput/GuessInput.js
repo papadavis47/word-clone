@@ -16,7 +16,9 @@ function GuessInput({ guesses, handleSubmitGuess, win, lose, answer }) {
 
   return (
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
-      {win || lose ? <EndBanner guesses={guesses} win={win} lose={lose} answer={answer} /> : null}
+      {win || lose ? (
+        <EndBanner numOfGuesses={guesses.length} win={win} lose={lose} answer={answer} />
+      ) : null}
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
         disabled={win || lose ? true : false}
