@@ -8,7 +8,7 @@ function Guess({ guess, answer }) {
       {guess
         ? guess.split('').map((char, index) => (
             <span className={`cell ${checkResults[index].status}`} key={index}>
-              {checkResults[index].letter}
+              {char}
             </span>
           ))
         : range(5).map((num) => (
