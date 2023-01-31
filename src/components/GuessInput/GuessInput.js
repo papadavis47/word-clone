@@ -17,6 +17,7 @@ function GuessInput({ handleSubmitGuess }) {
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
+        disabled={false}
         required
         minLength={5}
         maxLength={5}
