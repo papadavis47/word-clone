@@ -2,6 +2,7 @@ import React from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import GuessInput from '../GuessInput/GuessInput';
 import GuessList from '../GuessResults/GuessResults';
 // Pick a random word on every pageload.
@@ -11,11 +12,13 @@ console.info({ answer });
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
-  console.log(guesses);
 
   function handleSubmitGuess(tentativeGuess) {
-    const arrGuess = tentativeGuess.split('');
-    setGuesses([...guesses, arrGuess]);
+    if (guesses.length < NUM_OF_GUESSES_ALLOWED) {
+      setGuesses([...guesses, tentativeGuess]);
+    } else {
+      window.alert('Sorry. No more guess allowed 😄');
+    }
   }
 
   return (

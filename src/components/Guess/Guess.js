@@ -4,7 +4,7 @@ function Guess({ guess }) {
   return (
     <p className='guess'>
       {guess
-        ? guess.map((char, index) => (
+        ? guess.split('').map((char, index) => (
             <span className='cell' key={index}>
               {char}
             </span>

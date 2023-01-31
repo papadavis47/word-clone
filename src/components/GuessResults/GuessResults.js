@@ -9,9 +9,8 @@ function GuessResults({ guesses }) {
       {guesses.map((guess, index) => (
         <Guess guess={guess} key={index} />
       ))}
-      {range(NUM_OF_GUESSES_ALLOWED - guesses.length).map((num) => (
-        <Guess key={num} />
-      ))}
+      {guesses.length < NUM_OF_GUESSES_ALLOWED &&
+        range(NUM_OF_GUESSES_ALLOWED - guesses.length).map((num) => <Guess key={num} />)}
     </div>
   );
 }
