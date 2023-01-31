@@ -1,6 +1,7 @@
 import React from 'react';
+import EndBanner from '../EndBanner/EndBanner';
 
-function GuessInput({ handleSubmitGuess }) {
+function GuessInput({ guesses, handleSubmitGuess, win, lose, answer }) {
   const [tentativeGuess, setTentativeGuess] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,9 +16,10 @@ function GuessInput({ handleSubmitGuess }) {
 
   return (
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
+      {win || lose ? <EndBanner guesses={guesses} win={win} lose={lose} answer={answer} /> : null}
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
-        disabled={false}
+        disabled={win || lose ? true : false}
         required
         minLength={5}
         maxLength={5}
