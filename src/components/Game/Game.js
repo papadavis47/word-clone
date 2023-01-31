@@ -11,9 +11,11 @@ console.info({ answer });
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
+  console.log(guesses);
 
   function handleSubmitGuess(tentativeGuess) {
-    setGuesses([...guesses, tentativeGuess]);
+    const arrGuess = tentativeGuess.split('');
+    setGuesses([...guesses, arrGuess]);
   }
 
   return (

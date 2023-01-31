@@ -1,13 +1,19 @@
-import React from 'react';
+import { range } from '../../utils';
 
-function Guess() {
+function Guess({ guess }) {
   return (
     <p className='guess'>
-      <span className='cell'>F</span>
-      <span className='cell'>I</span>
-      <span className='cell'>R</span>
-      <span className='cell'>S</span>
-      <span className='cell'>T</span>
+      {guess
+        ? guess.map((char, index) => (
+            <span className='cell' key={index}>
+              {char}
+            </span>
+          ))
+        : range(5).map((num) => (
+            <span className='cell' key={num}>
+              {''}
+            </span>
+          ))}
     </p>
   );
 }

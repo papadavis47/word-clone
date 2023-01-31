@@ -10,7 +10,6 @@ function GuessInput({ handleSubmitGuess }) {
     }
     // setList([...list, { id: Math.random(), value: guess }]);
     handleSubmitGuess(tentativeGuess);
-    console.info({ tentativeGuess });
     setTentativeGuess('');
   }
 
